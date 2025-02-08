@@ -44,3 +44,17 @@ def weighted_interval_scheduling(consultas):
             i -= 1
 
     return resultado[::-1] 
+
+
+
+# INTERFACE
+raiz = ctk.CTk()
+raiz.title("SISTEMA DE AGENDAMENTO MÉDICO")
+raiz.geometry("1000x500")
+
+consultas = []
+
+titulo_label = ctk.CTkLabel(raiz, text="SISTEMA DE AGENDAMENTO DE CONSULTAS", font=("Arial", 24, "bold"))
+titulo_label.pack(pady=(20, 10))
+
+raiz.mainloop()
