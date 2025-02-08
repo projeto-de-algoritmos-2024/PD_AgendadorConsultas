@@ -45,6 +45,35 @@ def weighted_interval_scheduling(consultas):
 
     return resultado[::-1] 
 
+def adicionar_consulta():
+    try:
+        nome_paciente = entrada_nome.get()
+        nome_medico = entrada_medico.get()
+        prioridade = entrada_prioridade.get()
+        horario_inicio_str = entrada_inicio.get()
+        horario_fim_str = entrada_fim.get()
+
+        horario_inicio = converter_para_minutos(horario_inicio_str)
+        horario_fim = converter_para_minutos(horario_fim_str)
+
+        if horario_inicio is None or horario_fim is None:
+            return
+        if horario_inicio >= horario_fim:
+            messagebox.showerror("Erro", "O horário de início deve ser menor que o de término!")
+            return
+
+        peso = PESOS.get(prioridade, 1)
+        nova_consulta = (horario_inicio, horario_fim, nome_paciente, nome_medico, peso, prioridade)
+        consultas.append(nova_consulta)
+        
+        tabela.insert("", "end", values=(nome_paciente, nome_medico, prioridade, horario_inicio_str, horario_fim_str))
+        entrada_nome.delete(0, tk.END)
+        entrada_medico.delete(0, tk.END)
+        entrada_inicio.delete(0, tk.END)
+        entrada_fim.delete(0, tk.END)
+
+    except ValueError:
+        messagebox.showerror("Erro", "Insira valores válidos para os campos de horários!")
 
 
 # INTERFACE
