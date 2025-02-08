@@ -1,30 +1,21 @@
-**!! Atenção: Renomeie o seu repositório para (Tema)_(NomeDoProjeto). !!** 
+# Agendador de Consultas
 
-Temas:
- - Grafos1
- - Grafos2
- - PD
- - D&C
- - Greed
- - Final 
- 
- **!! *Não coloque os nomes dos alunos no título do repositório*. Exemplo de título correto: Grafos2_Labirinto-do-Minotauro !!**
- 
- (Apague essa seção)
+**Número da Lista**: 06<br>
+**Conteúdo da Disciplina**: Programação Dinâmica<br>
 
-# NomedoProjeto
-
-**Número da Lista**: X<br>
-**Conteúdo da Disciplina**: XXXXXXXXXX<br>
+## [Para assistir a apresentação desta entrega, clique aqui!](#)
 
 ## Alunos
 |Matrícula | Aluno |
 | -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 19/0107243  |  Gabriel Pessoa Zaranza |
+| 21/1063149  |  Izabella Alves Pereira |
 
 ## Sobre 
-Descreva os objetivos do seu projeto e como ele funciona. 
+
+Este é um sistema de agendamento médico desenvolvido com Python. O sistema permite adicionar consultas, informando o paciente, médico, horário de início e término, e prioridade (baixa, média ou alta). A partir dessas informações, ele otimiza o agendamento das consultas, evitando sobreposição de horários e priorizando as de maior importância.
+
+A otimização é feita por meio de programação dinâmica, utilizando a técnica de interval scheduling com pesos. A função weighted_interval_scheduling ordena as consultas pelo horário de término e calcula o melhor conjunto de consultas a serem agendadas, levando em conta as prioridades e os horários. 
 
 ## Screenshots
 Adicione 3 ou mais screenshots do projeto em funcionamento.
