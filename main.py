@@ -19,7 +19,7 @@ def converter_para_minutos(horario_str):
 def weighted_interval_scheduling(consultas):
     consultas_ordenadas = sorted(consultas, key=lambda x: x[1])
     n = len(consultas_ordenadas)
-    dp = [0] * n
+    dp = [0] * (n + 1)
     prev = [-1] * n
 
     for i in range(n):
@@ -28,22 +28,25 @@ def weighted_interval_scheduling(consultas):
                 prev[i] = j
                 break
 
-    for i in range(n):
-        peso_atual = consultas_ordenadas[i][4]
-        if prev[i] != -1:
-            peso_atual += dp[prev[i]]
-        dp[i] = max(peso_atual, dp[i - 1] if i > 0 else 0)
+    for i in range(1, n + 1):
+        peso_atual = consultas_ordenadas[i - 1][4]
+        if prev[i - 1] != -1:
+            peso_atual += dp[prev[i - 1] + 1]
+        dp[i] = max(peso_atual, dp[i - 1])
 
-    i = n - 1
+    i = n
     resultado = []
-    while i >= 0:
-        if prev[i] == -1 or (dp[i] > dp[i - 1] if i > 0 else True):
-            resultado.append(consultas_ordenadas[i])
-            i = prev[i]
+    while i > 0:
+        if i == 1 or dp[i] > dp[i - 1]: 
+            resultado.append(consultas_ordenadas[i - 1])
+            if prev[i - 1] != -1:
+                i = prev[i - 1] + 1 
+            else:
+                i = 0
         else:
             i -= 1
 
-    return resultado[::-1] 
+    return resultado[::-1]
 
 def adicionar_consulta():
     try:
@@ -74,12 +77,29 @@ def adicionar_consulta():
 
     except ValueError:
         messagebox.showerror("Erro", "Insira valores válidos para os campos de horários!")
+        
+def calcular_agendamento_otimizado():
+    if not consultas:
+        messagebox.showerror("Erro", "Nenhuma consulta foi adicionada!")
+        return
 
+    melhor_agendamento = weighted_interval_scheduling(consultas)
 
+    tabela.delete(*tabela.get_children())
+    for i, (inicio, fim, paciente, medico, _, prioridade) in enumerate(melhor_agendamento, start=1):
+        horario_inicio_str = f"{inicio // 60:02d}:{inicio % 60:02d}"
+        horario_fim_str = f"{fim // 60:02d}:{fim % 60:02d}"
+        tabela.insert("", "end", values=(paciente, medico, prioridade, horario_inicio_str, horario_fim_str))
+
+def limpar_tabela():
+    global consultas
+    consultas.clear()
+    tabela.delete(*tabela.get_children()) 
+    
 # INTERFACE
 raiz = ctk.CTk()
 raiz.title("SISTEMA DE AGENDAMENTO MÉDICO")
-raiz.geometry("1000x500")
+raiz.geometry("1000x530")
 
 consultas = []
 
@@ -124,5 +144,11 @@ tabela.heading("Médico", text="Médico")
 tabela.heading("Prioridade", text="Prioridade")
 tabela.heading("Início", text="Início")
 tabela.heading("Término", text="Término")
+
+botao_calcular = ctk.CTkButton(raiz, text="EXIBIR AGENDA", command=calcular_agendamento_otimizado)
+botao_calcular.pack(pady=10)
+
+botao_limpar = ctk.CTkButton(raiz, text="LIMPAR TABELA", command=limpar_tabela)
+botao_limpar.pack(pady=10)
 
 raiz.mainloop()
