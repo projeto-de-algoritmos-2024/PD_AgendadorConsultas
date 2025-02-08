@@ -130,7 +130,7 @@ entrada_prioridade = ctk.CTkComboBox(quadro_entradas, values=["Baixa", "Média",
 entrada_prioridade.grid(row=2, column=1, padx=10, pady=5, sticky="ew")
 entrada_prioridade.set("Baixa")
 
-botao_adicionar = ctk.CTkButton(quadro_entradas, text="ADICIONAR CONSULTA", command=adicionar_consulta)
+botao_adicionar = ctk.CTkButton(quadro_entradas, text="➕ ADICIONAR CONSULTA", command=adicionar_consulta)
 botao_adicionar.grid(row=2, column=2, columnspan=2, pady=15)
 
 tabela_frame = ctk.CTkFrame(raiz)
@@ -145,10 +145,10 @@ tabela.heading("Prioridade", text="Prioridade")
 tabela.heading("Início", text="Início")
 tabela.heading("Término", text="Término")
 
-botao_calcular = ctk.CTkButton(raiz, text="EXIBIR AGENDA", command=calcular_agendamento_otimizado)
+botao_calcular = ctk.CTkButton(raiz, text="✔️ EXIBIR AGENDA", command=calcular_agendamento_otimizado)
 botao_calcular.pack(pady=10)
 
-botao_limpar = ctk.CTkButton(raiz, text="LIMPAR TABELA", command=limpar_tabela)
+botao_limpar = ctk.CTkButton(raiz, text="✖️ LIMPAR TABELA", command=limpar_tabela, fg_color="darkred",)
 botao_limpar.pack(pady=10)
 
 raiz.mainloop()
