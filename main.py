@@ -82,4 +82,16 @@ entrada_prioridade.grid(row=2, column=1, padx=10, pady=5, sticky="ew")
 entrada_prioridade.set("Baixa")
 
 
+tabela_frame = ctk.CTkFrame(raiz)
+tabela_frame.pack(pady=10, padx=10, fill="both", expand=False)
+
+tabela = ttk.Treeview(tabela_frame, columns=("Paciente", "Médico", "Prioridade", "Início", "Término"), show="headings", height=8)
+tabela.pack(fill="both", expand=False)
+
+tabela.heading("Paciente", text="Paciente")
+tabela.heading("Médico", text="Médico")
+tabela.heading("Prioridade", text="Prioridade")
+tabela.heading("Início", text="Início")
+tabela.heading("Término", text="Término")
+
 raiz.mainloop()
