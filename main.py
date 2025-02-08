@@ -110,6 +110,8 @@ entrada_prioridade = ctk.CTkComboBox(quadro_entradas, values=["Baixa", "Média",
 entrada_prioridade.grid(row=2, column=1, padx=10, pady=5, sticky="ew")
 entrada_prioridade.set("Baixa")
 
+botao_adicionar = ctk.CTkButton(quadro_entradas, text="ADICIONAR CONSULTA", command=adicionar_consulta)
+botao_adicionar.grid(row=2, column=2, columnspan=2, pady=15)
 
 tabela_frame = ctk.CTkFrame(raiz)
 tabela_frame.pack(pady=10, padx=10, fill="both", expand=False)
