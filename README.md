@@ -21,16 +21,40 @@ A otimização é feita por meio de programação dinâmica, utilizando a técni
 Adicione 3 ou mais screenshots do projeto em funcionamento.
 
 ## Instalação 
-**Linguagem**: xxxxxx<br>
-**Framework**: (caso exista)<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
+**Linguagem**: Python<br>
+**Framework**: Nenhum (utiliza apenas a biblioteca CustomTkinter embutida no Python)<br>
+
+1. Para rodar este projeto, é necessário ter o Python instalado. Além disso, você precisará instalar as bibliotecas customtkinter e tkinter:
+
+```
+pip install customtkinter
+```
+
+2. Clone ou baixe este repositório para o seu computador:
+
+```
+git clone https://github.com/projeto-de-algoritmos-2024/PD_AgendadorConsultas
+cd PD_AgendadorConsultas
+```
+
+3. Execute o programa:
+```
+python main.py
+```
 
 ## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
 
-## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
+1. Após executar o programa, a interface será exibida.
 
+2. Preencha os campos obrigatórios:
 
+    - Nome do paciente.
+    - Nome do médico.
+    - Horário de início e término da consulta.
+    - Prioridade
 
+3. Clique em "ADICIONAR CONSULTA" para salvar os dados.
 
+4. Todas as consultas serão exibidas na tabela abaixo.
+
+5. Para visualizar as consultas, considerando a sobreposição de horários e priorizando as de maior importância, clique no botão "EXIBIR AGENDA".
