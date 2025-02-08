@@ -57,4 +57,29 @@ consultas = []
 titulo_label = ctk.CTkLabel(raiz, text="SISTEMA DE AGENDAMENTO DE CONSULTAS", font=("Arial", 24, "bold"))
 titulo_label.pack(pady=(20, 10))
 
+
+quadro_entradas = ctk.CTkFrame(raiz)
+quadro_entradas.pack(pady=10, padx=40, fill="x")
+ctk.CTkLabel(quadro_entradas, text="👤 Paciente:", anchor="w").grid(row=0, column=0, padx=10, pady=5, sticky="w")
+entrada_nome = ctk.CTkEntry(quadro_entradas, width=200)
+entrada_nome.grid(row=0, column=1, padx=10, pady=5, sticky="ew")
+
+ctk.CTkLabel(quadro_entradas, text="🩺 Médico:", anchor="w").grid(row=0, column=2, padx=10, pady=5, sticky="w")
+entrada_medico = ctk.CTkEntry(quadro_entradas, width=200)
+entrada_medico.grid(row=0, column=3, padx=10, pady=5, sticky="ew")
+
+ctk.CTkLabel(quadro_entradas, text="🕑 Início (HH:MM):", anchor="w").grid(row=1, column=0, padx=10, pady=5, sticky="w")
+entrada_inicio = ctk.CTkEntry(quadro_entradas, width=100)
+entrada_inicio.grid(row=1, column=1, padx=10, pady=5, sticky="ew")
+
+ctk.CTkLabel(quadro_entradas, text="🕑 Término (HH:MM):", anchor="w").grid(row=1, column=2, padx=10, pady=5, sticky="w")
+entrada_fim = ctk.CTkEntry(quadro_entradas, width=100)
+entrada_fim.grid(row=1, column=3, padx=10, pady=5, sticky="ew")
+
+ctk.CTkLabel(quadro_entradas, text="Prioridade:", anchor="w").grid(row=2, column=0, padx=10, pady=5, sticky="w")
+entrada_prioridade = ctk.CTkComboBox(quadro_entradas, values=["Baixa", "Média", "Alta"], width=150)
+entrada_prioridade.grid(row=2, column=1, padx=10, pady=5, sticky="ew")
+entrada_prioridade.set("Baixa")
+
+
 raiz.mainloop()
