@@ -3,7 +3,7 @@
 **Número da Lista**: 06<br>
 **Conteúdo da Disciplina**: Programação Dinâmica<br>
 
-## [Para assistir a apresentação desta entrega, clique aqui!](#)
+## [Para assistir a apresentação desta entrega, clique aqui!](https://www.youtube.com/watch?v=eo5aZXzX5LM&ab_channel=GabrielZaranza)
 
 ## Alunos
 |Matrícula | Aluno |
@@ -18,7 +18,8 @@ Este é um sistema de agendamento médico desenvolvido com Python. O sistema per
 A otimização é feita por meio de programação dinâmica, utilizando a técnica de interval scheduling com pesos. A função weighted_interval_scheduling ordena as consultas pelo horário de término e calcula o melhor conjunto de consultas a serem agendadas, levando em conta as prioridades e os horários. 
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
+![a](https://github.com/projeto-de-algoritmos-2024/PD_AgendadorConsultas/blob/master/images/tela_vazia.png)
+![a](https://github.com/projeto-de-algoritmos-2024/PD_AgendadorConsultas/blob/master/images/tela_preenchida.png)
 
 ## Instalação 
 **Linguagem**: Python<br>
